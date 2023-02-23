@@ -1,13 +1,13 @@
 version: "3"
 services:
   db:
-    image: postgres:12
+    image: mongo:15.0.14
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT}:27017
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - mongo:/var/lib/mongodb/data
 volumes:
-  postgres: ~
+  mongo: ~
